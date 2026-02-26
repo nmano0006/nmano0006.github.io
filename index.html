@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="Navaratnam Manoranjan – iOS & macOS app developer. Language learning, translation, and custom app development." />
+  <title>Navaratnam Manoranjan – iOS & macOS Apps</title>
+
+  <!-- Open Graph (nice preview when you share on Facebook/WhatsApp/Twitter) -->
+  <meta property="og:title" content="Navaratnam Manoranjan – iOS & macOS Apps" />
+  <meta property="og:description" content="Language learning, translation, and custom iOS/macOS app development. Support & contact." />
+  <meta property="og:type" content="website" />
+
+  <style>
+    :root{
+      --bg:#070a12;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.09);
+      --border:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --muted2:rgba(255,255,255,.6);
+      --accent:#7c5cff;
+      --accent2:#23d5ff;
+      --shadow:0 24px 70px rgba(0,0,0,.5);
+      --radius:18px;
+      --max:1100px;
+      --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1200px 650px at 15% 10%, rgba(124,92,255,.32), transparent 60%),
+        radial-gradient(900px 520px at 85% 15%, rgba(35,213,255,.28), transparent 58%),
+        radial-gradient(1100px 650px at 50% 95%, rgba(124,92,255,.18), transparent 60%),
+        var(--bg);
+      line-height:1.6;
+    }
+    a{color:inherit}
+    .wrap{max-width:var(--max);margin:0 auto;padding:18px 16px 80px}
+    /* Top nav */
+    .nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(7,10,18,.78), rgba(7,10,18,.35));
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .navin{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:12px 16px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .logo{
+      width:40px;height:40px;border-radius:14px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 18px 45px rgba(124,92,255,.25);
+      display:grid;place-items:center;
+      font-weight:900;color:#081224; letter-spacing:.5px;
+      user-select:none;
+    }
+    .btxt{display:flex; flex-direction:column; gap:0}
+    .btxt strong{font-size:1rem; line-height:1.1}
+    .btxt span{font-size:.86rem;color:var(--muted2)}
+    .links{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+    .links a{
+      text-decoration:none;
+      color:var(--muted);
+      font-weight:650;
+      font-size:.95rem;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid transparent;
+    }
+    .links a:hover{border-color:rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:var(--text)}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
+      background:linear-gradient(135deg, rgba(124,92,255,.95), rgba(35,213,255,.85));
+      color:#06101f;
+      font-weight:900;
+      letter-spacing:.2px;
+      text-decoration:none;
+      box-shadow:0 18px 40px rgba(124,92,255,.22);
+      white-space:nowrap;
+    }
+    .btn.secondary{
+      background:rgba(0,0,0,.18);
+      color:var(--text);
+      border:1px solid var(--border);
+      box-shadow:none;
+      font-weight:800;
+    }
+
+    /* Hero */
+    .hero{
+      margin-top:18px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      padding:22px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(800px 300px at 25% 20%, rgba(124,92,255,.38), transparent 60%),
+        radial-gradient(760px 320px at 75% 45%, rgba(35,213,255,.28), transparent 60%);
+      filter:blur(12px);
+      opacity:.75;
+      z-index:0;
+    }
+    .hero > *{position:relative; z-index:1}
+    .heroGrid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      align-items:center;
+    }
+    @media (min-width: 900px){
+      .heroGrid{grid-template-columns:1.25fr .75fr}
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:2rem;
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+    .lead{margin:0;color:var(--muted);max-width:60ch}
+    .pillRow{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.16);
+      color:var(--muted);
+      font-weight:650;
+      font-size:.92rem;
+    }
+    .ctaRow{display:flex;gap:12px;flex-wrap:wrap;margin-top:16px}
+    .panel{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.18);
+      border-radius:16px;
+      padding:14px;
+    }
+    .stat{
+      display:grid; grid-template-columns:1fr 1fr; gap:10px;
+      margin-top:10px;
+    }
+    .k{color:var(--muted2); font-size:.86rem}
+    .v{font-weight:900}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+
+    /* Sections */
+    section{margin-top:18px}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    @media(min-width: 860px){
+      .grid.two{grid-template-columns:1fr 1fr}
+      .grid.three{grid-template-columns:1fr 1fr 1fr}
+    }
+    .card{
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:16px;
+    }
+    .card h2{margin:0 0 10px; font-size:1.2rem}
+    .card h3{margin:0 0 8px; font-size:1.05rem}
+    .muted{color:var(--muted)}
+    .list{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    .tagRow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .tag{
+      border:1px dashed rgba(255,255,255,.22);
+      color:var(--muted2);
+      border-radius:999px;
+      padding:5px 10px;
+      font-size:.86rem;
+    }
+    .bar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      margin-bottom:10px;
+    }
+
+    /* Portfolio tiles */
+    .tile{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.18);
+      border-radius:16px;
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height:140px;
+    }
+    .tileTop{display:flex; align-items:flex-start; justify-content:space-between; gap:10px}
+    .badge{
+      font-size:.82rem;
+      color:#081224;
+      font-weight:900;
+      padding:6px 10px;
+      border-radius:999px;
+      background:linear-gradient(135deg, rgba(124,92,255,.95), rgba(35,213,255,.85));
+      white-space:nowrap;
+    }
+    .small{font-size:.92rem;color:var(--muted)}
+    .tile a{color:var(--text)}
+    .tile .mini{color:var(--muted2); font-size:.86rem}
+
+    /* Contact */
+    .kv{
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.18);
+      border-radius:16px;
+      padding:12px;
+    }
+    .copyBtn{
+      width:100%;
+      margin-top:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(0,0,0,.18);
+      color:var(--text);
+      font-weight:850;
+      cursor:pointer;
+    }
+    .copyBtn:hover{background:rgba(255,255,255,.04)}
+    footer{
+      margin-top:18px;
+      text-align:center;
+      color:var(--muted2);
+      font-size:.92rem;
+      padding:12px 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="navin">
+      <a class="brand" href="#top">
+        <div class="logo" aria-hidden="true">NM</div>
+        <div class="btxt">
+          <strong>Navaratnam Manoranjan</strong>
+          <span>iOS & macOS App Developer</span>
+        </div>
+      </a>
+
+      <div class="links" aria-label="Primary">
+        <a href="#apps">Apps</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a class="btn secondary" href="https://nmano0006.github.io/language-learning/" target="_blank" rel="noopener">Support</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="top" class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="heroGrid">
+        <div>
+          <h1>Professional iOS & macOS apps — Language Learning, Translation, and Custom Projects</h1>
+          <p class="lead">
+            I build clean, fast, user-friendly applications for <strong>iPhone, iPad, and Mac</strong>.
+            Explore my language learning apps or contact me to create a custom app for your business.
+          </p>
+
+          <div class="pillRow" aria-label="Highlights">
+            <div class="pill">📱 iOS (iPhone / iPad)</div>
+            <div class="pill">🖥️ macOS</div>
+            <div class="pill">🎙️ Speech & Audio</div>
+            <div class="pill">🌍 Multi-language</div>
+          </div>
+
+          <div class="ctaRow">
+            <a class="btn" href="#apps">View Apps</a>
+            <a class="btn secondary" href="#contact">Contact / Hire</a>
+          </div>
+        </div>
+
+        <div class="panel" aria-label="Quick info">
+          <div class="bar">
+            <strong>Quick Info</strong>
+            <span class="badge">Available</span>
+          </div>
+
+          <div class="kv">
+            <div class="k">Support Page</div>
+            <div class="v"><a href="https://nmano0006.github.io/language-learning/" target="_blank" rel="noopener">nmano0006.github.io/language-learning</a></div>
+          </div>
+
+          <div class="stat">
+            <div class="kv">
+              <div class="k">Platforms</div>
+              <div class="v">iOS · macOS</div>
+            </div>
+            <div class="kv">
+              <div class="k">Focus</div>
+              <div class="v">Language Apps</div>
+            </div>
+          </div>
+
+          <div class="kv" style="margin-top:10px;">
+            <div class="k">Contact Email</div>
+            <div class="v mono"><a href="mailto:applestudio03@gmail.com?subject=App%20Inquiry%20-%20%5BYour%20App%20Name%5D">applestudio03@gmail.com</a></div>
+          </div>
+
+          <p class="small" style="margin:10px 0 0;">
+            Tip: When you share this page on social media, it will look professional and includes direct contact + support.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- APPS -->
+    <section id="apps" class="card">
+      <div class="bar">
+        <h2 style="margin:0;">Apps</h2>
+        <span class="muted">Language learning & translation</span>
+      </div>
+
+      <div class="grid three">
+        <div class="tile">
+          <div class="tileTop">
+            <div>
+              <strong>ConnectApp</strong>
+              <div class="mini">Communication & learning</div>
+            </div>
+            <span class="badge">iOS</span>
+          </div>
+          <div class="small">A simple experience designed for fast learning and easy use.</div>
+          <div class="tagRow">
+            <span class="tag">SwiftUI</span><span class="tag">Audio</span><span class="tag">Clean UI</span>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tileTop">
+            <div>
+              <strong>English Learning Series</strong>
+              <div class="mini">English ↔ multiple languages</div>
+            </div>
+            <span class="badge">iOS</span>
+          </div>
+          <div class="small">EnglishTamil, EnglishHindi, EnglishSpanish, EnglishArabic, EnglishJapanese, EnglishKorean and more.</div>
+          <div class="tagRow">
+            <span class="tag">Multi-language</span><span class="tag">Speech</span><span class="tag">Lessons</span>
+          </div>
+        </div>
+
+        <div class="tile">
+          <div class="tileTop">
+            <div>
+              <strong>EnglishTamilMac</strong>
+              <div class="mini">Desktop learning</div>
+            </div>
+            <span class="badge">macOS</span>
+          </div>
+          <div class="small">A macOS version built for large screens and productivity.</div>
+          <div class="tagRow">
+            <span class="tag">macOS</span><span class="tag">SwiftUI</span><span class="tag">Export</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="muted" style="margin-top:12px;">
+        Want one app in a new language? Message me with the language name and features you need (phrases, lessons, speaking, translation, etc.).
+      </p>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="grid two">
+      <div class="card">
+        <h2>Services</h2>
+        <p class="muted">I can create apps for iOS and macOS based on your idea.</p>
+        <ul class="list">
+          <li>iPhone / iPad (iOS) app development</li>
+          <li>macOS desktop app development</li>
+          <li>Language learning and translation apps</li>
+          <li>Speech recognition, audio playback, text-to-speech</li>
+          <li>App Store publishing support (screenshots, metadata, compliance)</li>
+        </ul>
+        <div class="tagRow">
+          <span class="tag">Swift</span><span class="tag">SwiftUI</span><span class="tag">App Store</span><span class="tag">macOS</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>How I Work</h2>
+        <ul class="list">
+          <li><strong>Step 1:</strong> You send your idea + features</li>
+          <li><strong>Step 2:</strong> I create design + prototype</li>
+          <li><strong>Step 3:</strong> Build full app (iOS/macOS)</li>
+          <li><strong>Step 4:</strong> Testing + fixes</li>
+          <li><strong>Step 5:</strong> Publish to App Store (if you want)</li>
+        </ul>
+        <div class="panel" style="margin-top:12px;">
+          <div class="k">For faster support, include:</div>
+          <div class="small">
+            App name • Device (iPhone/Mac) • iOS/macOS version • Screenshot • Steps to reproduce
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="card">
+      <div class="bar">
+        <h2 style="margin:0;">Portfolio</h2>
+        <span class="muted">You can replace these with your App Store links</span>
+      </div>
+
+      <div class="grid three">
+        <div class="tile">
+          <div class="tileTop">
+            <div>
+              <strong>EnglishSpanish</strong>
+              <div class="mini">English ↔ Spanish</div>
+            </div>
+            <span class="badge">iOS</span>
+          </div>
+          <div class="small">Add your App Store link here (optional).</div>
+          <!-- Replace # with your App Store URL -->
+          <a class="small" href="#" onclick="return false;">App Store link (add later)</a>
+        </div>
+
+        <div class="tile">
+          <div class="tileTop">
+            <div>
+              <strong>EnglishTamil</strong>
+              <div class="mini">English ↔ Tamil</div>
+            </div>
+            <span class="badge">iOS</span>
+          </div>
+          <div class="small">Add your App Store link here (optional).</div>
+          <a class="small" href="#" onclick="return false;">App Store link (add later)</a>
+        </div>
+
+        <div class="tile">
+          <div class="tileTop">
+            <div>
+              <strong>EnglishTamilMac</strong>
+              <div class="mini">Mac version</div>
+            </div>
+            <span class="badge">macOS</span>
+          </div>
+          <div class="small">Add your Mac App Store link here (optional).</div>
+          <a class="small" href="#" onclick="return false;">Mac App Store link (add later)</a>
+        </div>
+      </div>
+
+      <p class="muted" style="margin-top:12px;">
+        If you paste your App Store links, I can update this page to show real “Download” buttons.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="grid two">
+      <div class="card">
+        <h2>Contact</h2>
+        <p class="muted">For support or new app requests, email me anytime.</p>
+
+        <div class="kv">
+          <div class="k">Email</div>
+          <div class="v mono">
+            <a href="mailto:applestudio03@gmail.com?subject=App%20Request%20-%20%5BiOS%2FmacOS%5D%20%5BApp%20Name%5D&body=Hello%2C%0A%0APlatform%3A%20(iOS%2FmacOS)%0AApp%20Type%3A%20(Language%20learning%2FTranslator%2FOther)%0AFeatures%3A%20%0ADesign%20Reference%3A%20(optional)%0ADeadline%3A%20(optional)%0A%0AThank%20you.">applestudio03@gmail.com</a>
+          </div>
+        </div>
+
+        <button class="copyBtn" type="button" onclick="copyText('applestudio03@gmail.com')">📋 Copy Email Address</button>
+        <div id="copyStatus" class="small" aria-live="polite" style="min-height:20px;margin-top:8px;"></div>
+
+        <div class="panel" style="margin-top:12px;">
+          <div class="k">Support Page</div>
+          <div class="small">
+            Use this link for App Store support URL:
+            <a href="https://nmano0006.github.io/language-learning/" target="_blank" rel="noopener">https://nmano0006.github.io/language-learning/</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Social Sharing Tips</h2>
+        <ul class="list">
+          <li>Share this website link on Facebook, WhatsApp, Telegram, and YouTube.</li>
+          <li>Post short demo videos (10–20 seconds) with “Download on App Store” text.</li>
+          <li>Always include your support link in the post or bio.</li>
+        </ul>
+
+        <div class="panel" style="margin-top:12px;">
+          <div class="k">Suggested post text</div>
+          <div class="small">
+            🌍 Language Learning & Translator Apps (iOS + macOS)<br/>
+            Learn English in multiple languages. Fast, simple, and easy to use.<br/>
+            Support: <span class="mono">nmano0006.github.io/language-learning</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Navaratnam Manoranjan. All rights reserved.
+    </footer>
+  </div>
+
+  <script>
+    function copyText(text){
+      const status = document.getElementById("copyStatus");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          status.textContent = "Copied: " + text;
+        }).catch(() => {
+          status.textContent = "Copy failed. Please copy manually: " + text;
+        });
+      } else {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        try {
+          document.execCommand("copy");
+          status.textContent = "Copied: " + text;
+        } catch(e){
+          status.textContent = "Copy failed. Please copy manually: " + text;
+        }
+        document.body.removeChild(ta);
+      }
+    }
+  </script>
+</body>
+</html>
