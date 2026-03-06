@@ -775,6 +775,7 @@
 </head>
 <body>
 
+<canvas id="starfield" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;"></canvas>
 <div class="glow-orb glow-orb-1"></div>
 <div class="glow-orb glow-orb-2"></div>
 
@@ -1004,19 +1005,22 @@
       <form class="contact-form" onsubmit="handleSubmit(event)">
         <div class="form-group">
           <label>Your Name</label>
-          <input type="text" placeholder="John Smith" required>
+          <input type="text" name="name" placeholder="John Smith" required>
         </div>
         <div class="form-group">
           <label>Email Address</label>
-          <input type="email" placeholder="john@example.com" required>
+          <input type="email" name="email" placeholder="john@example.com" required>
         </div>
         <div class="form-group">
           <label>Your App Idea</label>
-          <textarea rows="5" placeholder="Describe your idea, what platform (iOS/macOS), and any key features you have in mind..." required></textarea>
+          <textarea name="message" rows="5" placeholder="Describe your idea, what platform (iOS/macOS), and any key features you have in mind..." required></textarea>
         </div>
         <button type="submit" class="form-submit">Send Message ✦</button>
         <p id="form-msg" style="font-size:0.85rem; color: var(--violet-light); display:none; margin-top:0.5rem;">
           ✓ Thanks! We will be in touch within 24 hours.
+        </p>
+        <p id="form-err-msg" style="font-size:0.85rem; color:#f87171; display:none; margin-top:0.5rem;">
+          ✗ Something went wrong. Please try again or email us directly.
         </p>
       </form>
     </div>
@@ -1041,6 +1045,53 @@
 </footer>
 
 <script>
+// ── Star field ──────────────────────────────────────────────
+(function () {
+  var canvas = document.getElementById('starfield');
+  var ctx = canvas.getContext('2d');
+  var stars = [];
+  var NUM = 160;
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  for (var i = 0; i < NUM; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.4 + 0.3,
+      alpha: Math.random() * 0.6 + 0.2,
+      speed: Math.random() * 0.25 + 0.05,
+      twinkleSpeed: Math.random() * 0.02 + 0.005,
+      twinkleDir: Math.random() > 0.5 ? 1 : -1
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    stars.forEach(function (s) {
+      // twinkle
+      s.alpha += s.twinkleSpeed * s.twinkleDir;
+      if (s.alpha > 0.85 || s.alpha < 0.1) s.twinkleDir *= -1;
+      // drift upward slowly
+      s.y -= s.speed;
+      if (s.y < -2) { s.y = canvas.height + 2; s.x = Math.random() * canvas.width; }
+      // draw with violet tint on some stars
+      var hue = Math.random() > 0.85 ? '180, 130, 255' : '220, 210, 255';
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(' + hue + ',' + s.alpha + ')';
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
 // Set email links via JS to avoid bot scrapers and CDN obfuscation
 (function() {
   var u = 'admin';
@@ -1052,16 +1103,39 @@
   if (el2) el2.href = href;
 })();
 
-function handleSubmit(e) {
+async function handleSubmit(e) {
   e.preventDefault();
-  var btn = e.target.querySelector('.form-submit');
+  var form = e.target;
+  var btn = form.querySelector('.form-submit');
+  var msg = document.getElementById('form-msg');
+  var errMsg = document.getElementById('form-err-msg');
+
   btn.textContent = 'Sending…';
   btn.disabled = true;
-  setTimeout(function() {
-    btn.textContent = 'Sent! ✓';
-    document.getElementById('form-msg').style.display = 'block';
-    e.target.reset();
-  }, 900);
+  msg.style.display = 'none';
+  if (errMsg) errMsg.style.display = 'none';
+
+  var data = new FormData(form);
+
+  try {
+    var response = await fetch('https://formspree.io/f/mbdzjpja', {
+      method: 'POST',
+      body: data,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      btn.textContent = 'Sent! ✓';
+      msg.style.display = 'block';
+      form.reset();
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    btn.textContent = 'Send Message ✦';
+    btn.disabled = false;
+    if (errMsg) errMsg.style.display = 'block';
+  }
 }
 
 // Scroll-triggered animations for process steps
