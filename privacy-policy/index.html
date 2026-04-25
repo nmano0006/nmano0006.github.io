@@ -1,1 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Lumina Dev Apps">
+<meta name="robots" content="index, follow">
+<title>Privacy Policy — Lumina Dev Apps</title>
+<meta name="description" content="Privacy Policy for all Lumina Dev Apps applications, including SwiftRegister POS, EasyInventory, HealthDeck, PharmDeck, NurseToolkit, DoctorToolkit, and the bilingual language learning suite.">
+<link rel="canonical" href="https://luminadevapps.com/privacy-policy/">
 
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lumina Dev Apps">
+<meta property="og:title" content="Privacy Policy — Lumina Dev Apps">
+<meta property="og:description" content="Privacy Policy for all Lumina Dev Apps iOS and macOS applications.">
+<meta property="og:url" content="https://luminadevapps.com/privacy-policy/">
+
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/logo.png">
+<link rel="apple-touch-icon" href="/logo.png">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+--bg:#0a0b0f;--bg2:#12131a;--bg3:#1a1b25;--bg4:#222333;
+--text:#e8e6f0;--text2:#9896a8;--text3:#5c5a6e;
+--accent:#6c5ce7;--accent2:#a29bfe;--accent-glow:rgba(108,92,231,0.15);
+--gold:#f4c542;--green:#00d68f;--blue:#0984e3;--coral:#ff6b6b;--cyan:#00cec9;
+--card:rgba(26,27,37,0.7);--border:rgba(108,92,231,0.12);
+--font:'Sora',system-ui,sans-serif;--mono:'Source Code Pro',monospace;
+--radius:16px;--radius-sm:10px;
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden}
+a{color:var(--accent2);text-decoration:none;transition:color .2s}
+a:hover{color:var(--gold)}
+
+/* Grain overlay */
+body::before{content:'';position:fixed;inset:0;opacity:.03;pointer-events:none;z-index:9999;
+background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* Glow orbs */
+.orb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+.orb-1{width:600px;height:600px;background:rgba(108,92,231,0.08);top:-200px;left:-100px}
+.orb-2{width:500px;height:500px;background:rgba(0,206,201,0.06);top:600px;right:-150px}
+
+/* Layout */
+.container{max-width:900px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
+
+/* Animations */
+@keyframes fadeUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(108,92,231,0.2)}50%{box-shadow:0 0 40px rgba(108,92,231,0.4)}}
+.fade-up{animation:fadeUp .8s ease both}
+
+/* ═══════ NAV ═══════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:18px 0;backdrop-filter:blur(20px);background:rgba(10,11,15,0.8);border-bottom:1px solid var(--border)}
+nav .container{max-width:1200px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;font-weight:700;font-size:1.25rem;letter-spacing:-.02em}
+.logo-mark{width:38px;height:38px;flex-shrink:0}
+.logo-mark svg{width:100%;height:100%}
+.logo span{background:linear-gradient(135deg,var(--text),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.nav-links{display:flex;gap:32px;align-items:center}
+.nav-links a{color:var(--text2);font-size:.875rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--accent);color:#fff!important;padding:10px 24px;border-radius:var(--radius-sm);font-size:.875rem;font-weight:600;transition:all .3s}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px)}
+
+/* ═══════ HERO ═══════ */
+.hero{padding:160px 0 60px;text-align:center;position:relative;overflow:hidden}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 20px;background:var(--accent-glow);border:1px solid var(--border);border-radius:100px;font-size:.8rem;color:var(--accent2);font-weight:500;margin-bottom:28px}
+.hero-badge .dot{width:6px;height:6px;background:var(--green);border-radius:50%;animation:pulse-glow 2s infinite}
+.hero h1{font-size:clamp(2.4rem,5vw,3.5rem);font-weight:700;letter-spacing:-.04em;line-height:1.1;margin-bottom:20px}
+.hero h1 .gradient{background:linear-gradient(135deg,var(--accent2),var(--cyan),var(--gold));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{font-size:1.05rem;color:var(--text2);max-width:620px;margin:0 auto;line-height:1.8}
+.last-updated{display:inline-block;margin-top:24px;padding:6px 16px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text3);font-family:var(--mono)}
+
+/* ═══════ CONTENT ═══════ */
+.content{padding:40px 0 80px}
+.content section{margin-bottom:40px}
+.content h2{font-size:1.5rem;font-weight:600;margin-bottom:16px;letter-spacing:-.02em;display:flex;align-items:center;gap:12px}
+.content h2::before{content:'';width:4px;height:24px;background:linear-gradient(180deg,var(--accent),var(--cyan));border-radius:2px}
+.content h3{font-size:1.05rem;font-weight:600;margin:20px 0 10px;color:var(--text)}
+.content p{color:var(--text2);font-size:.95rem;line-height:1.8;margin-bottom:14px}
+.content ul{list-style:none;padding:0;margin-bottom:16px}
+.content ul li{color:var(--text2);font-size:.95rem;line-height:1.8;padding:6px 0 6px 28px;position:relative}
+.content ul li::before{content:'';position:absolute;left:8px;top:16px;width:6px;height:6px;background:var(--accent2);border-radius:50%}
+.content strong{color:var(--text);font-weight:600}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:28px;margin-bottom:20px}
+
+.app-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;margin-top:8px}
+.app-list .app-item{display:flex;align-items:center;gap:8px;padding:8px 12px;background:var(--bg2);border:1px solid var(--border);border-radius:8px;font-size:.85rem;color:var(--text2)}
+.app-list .app-item::before{content:'';width:6px;height:6px;background:var(--accent2);border-radius:50%;flex-shrink:0}
+
+.contact-box{background:linear-gradient(135deg,rgba(108,92,231,0.08),rgba(0,206,201,0.04));border:1px solid var(--border);border-radius:var(--radius);padding:32px;text-align:center;margin-top:32px}
+.contact-box h2{justify-content:center}
+.contact-box h2::before{display:none}
+.contact-box p{margin-bottom:20px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:20px}
+.contact-item{padding:16px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius-sm)}
+.contact-item .label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text3);margin-bottom:6px}
+.contact-item a{font-family:var(--mono);font-size:.85rem;color:var(--accent2);word-break:break-all}
+
+/* ═══════ FOOTER ═══════ */
+footer{padding:40px 0;border-top:1px solid var(--border);text-align:center}
+footer p{color:var(--text3);font-size:.85rem;line-height:1.8}
+footer a{color:var(--text2)}
+.footer-links{display:flex;gap:24px;justify-content:center;margin-top:12px;flex-wrap:wrap}
+.footer-links a{font-size:.85rem}
+
+/* ═══════ RESPONSIVE ═══════ */
+@media(max-width:768px){
+.nav-links{gap:16px}
+.nav-links a:not(.nav-cta){display:none}
+.hero{padding:130px 0 40px}
+.content{padding:20px 0 60px}
+.card{padding:20px}
+.contact-box{padding:24px}
+}
+@media(max-width:600px){
+.container{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- Glow orbs -->
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+
+<!-- ═══════ NAV ═══════ -->
+<nav>
+<div class="container">
+    <a href="https://luminadevapps.com/" class="logo" aria-label="Lumina Dev Apps home">
+        <div class="logo-mark">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Lumina Dev Apps logo">
+                <defs>
+                    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#f4c542" stop-opacity="0.9"/>
+                        <stop offset="60%" stop-color="#f4c542" stop-opacity="0.3"/>
+                        <stop offset="100%" stop-color="#f4c542" stop-opacity="0"/>
+                    </radialGradient>
+                </defs>
+                <!-- Purple rounded square background -->
+                <rect width="100" height="100" rx="22" fill="#6c5ce7"/>
+                <!-- Sun glow -->
+                <circle cx="72" cy="32" r="14" fill="url(#sunGlow)"/>
+                <!-- Sun rays -->
+                <g stroke="#f4c542" stroke-width="2" stroke-linecap="round">
+                    <line x1="72" y1="20" x2="72" y2="16"/>
+                    <line x1="72" y1="44" x2="72" y2="48"/>
+                    <line x1="60" y1="32" x2="56" y2="32"/>
+                    <line x1="84" y1="32" x2="88" y2="32"/>
+                    <line x1="63.5" y1="23.5" x2="60.7" y2="20.7"/>
+                    <line x1="80.5" y1="40.5" x2="83.3" y2="43.3"/>
+                    <line x1="63.5" y1="40.5" x2="60.7" y2="43.3"/>
+                    <line x1="80.5" y1="23.5" x2="83.3" y2="20.7"/>
+                </g>
+                <!-- Sun core -->
+                <circle cx="72" cy="32" r="6" fill="#f4c542"/>
+                <!-- Letter L -->
+                <text x="42" y="74" text-anchor="middle" font-family="Sora, sans-serif" font-weight="700" font-size="58" fill="#fff">L</text>
+                <!-- Code hint </> -->
+                <text x="72" y="76" text-anchor="middle" font-family="Source Code Pro, monospace" font-weight="500" font-size="11" fill="#fff" opacity="0.85">&lt;/&gt;</text>
+                <!-- Teal stripe -->
+                <rect x="22" y="82" width="56" height="6" rx="1" fill="#00cec9"/>
+            </svg>
+        </div>
+        <span>Lumina Dev Apps</span>
+    </a>
+    <div class="nav-links">
+        <a href="https://luminadevapps.com/">Home</a>
+        <a href="mailto:admin@luminadevapps.com" class="nav-cta">Contact</a>
+    </div>
+</div>
+</nav>
+
+<!-- ═══════ HERO ═══════ -->
+<header class="hero">
+<div class="container">
+    <div class="hero-badge fade-up"><span class="dot"></span> Your privacy matters</div>
+    <h1 class="fade-up">Privacy <span class="gradient">Policy</span></h1>
+    <p class="fade-up">How Lumina Dev Apps collects, uses, and protects your information across all our iOS and macOS applications.</p>
+    <div class="last-updated fade-up">Last updated: April 25, 2026</div>
+</div>
+</header>
+
+<!-- ═══════ CONTENT ═══════ -->
+<main class="content">
+<div class="container">
+
+    <section>
+        <div class="card">
+            <p>This Privacy Policy describes how <strong>Navaratnam Manoranjan</strong>, operating as <strong>Lumina Dev Apps</strong> (a division of Direct Parcel Distributors Inc., based in Oshawa, Ontario, Canada), collects, uses, and safeguards information when you use our iOS and macOS applications. This policy applies to all applications published under the Lumina Dev Apps brand.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Applications Covered</h2>
+        <p>This Privacy Policy applies to all current and future applications developed and published by Lumina Dev Apps, including but not limited to:</p>
+        <div class="app-list">
+            <div class="app-item">SwiftRegister POS</div>
+            <div class="app-item">EasyInventory</div>
+            <div class="app-item">HealthDeck</div>
+            <div class="app-item">PharmDeck</div>
+            <div class="app-item">NurseToolkit</div>
+            <div class="app-item">DoctorToolkit</div>
+            <div class="app-item">ProInvoice</div>
+            <div class="app-item">Explore Canada</div>
+            <div class="app-item">PlantHaven</div>
+            <div class="app-item">WorldMapApp</div>
+            <div class="app-item">KidLearn</div>
+            <div class="app-item">AI Resume Builder</div>
+            <div class="app-item">AI Girl Tutor</div>
+            <div class="app-item">MyConnect</div>
+            <div class="app-item">EnglishTamil</div>
+            <div class="app-item">EnglishHindi</div>
+            <div class="app-item">EnglishSpanish</div>
+            <div class="app-item">EnglishMandarin</div>
+            <div class="app-item">EnglishArabic</div>
+            <div class="app-item">EnglishPortuguese</div>
+            <div class="app-item">EnglishBengali</div>
+            <div class="app-item">EnglishRussian</div>
+            <div class="app-item">EnglishDeutsch</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Information We Collect</h2>
+        <p>Our applications are designed to minimize data collection. We may request access to the following only when required to provide core functionality, and always with your explicit permission:</p>
+        <ul>
+            <li><strong>Contact Information</strong> — such as name, email, or phone number, when you reach out to us directly.</li>
+            <li><strong>Device Contacts</strong> — accessed only when you grant explicit permission for features that require it.</li>
+            <li><strong>Microphone &amp; Speech Data</strong> — used locally for translation, pronunciation, or voice-input features.</li>
+            <li><strong>Camera Access</strong> — used for barcode scanning, document capture, or photo features.</li>
+            <li><strong>Email Data</strong> — only when using communication features that require email integration.</li>
+            <li><strong>Health-Related Inputs</strong> — entered manually by users of medical apps (HealthDeck, PharmDeck, NurseToolkit, DoctorToolkit) and stored locally on your device.</li>
+            <li><strong>Inventory &amp; Business Data</strong> — entered by users of business apps (SwiftRegister, EasyInventory, ProInvoice) and stored locally or in your chosen cloud account.</li>
+        </ul>
+        <p>All data access is permission-based and controlled by you through your device settings.</p>
+    </section>
+
+    <section>
+        <h2>How We Use Your Information</h2>
+        <p>Information collected is used solely to:</p>
+        <ul>
+            <li>Provide, maintain, and improve our application features.</li>
+            <li>Respond to support requests and communications.</li>
+            <li>Diagnose and resolve technical issues.</li>
+        </ul>
+        <p>We <strong>do not</strong> use your data for advertising, profiling, or behavioral tracking.</p>
+    </section>
+
+    <section>
+        <h2>AI &amp; Third-Party Services</h2>
+        <p>Some of our applications include AI-powered features (such as differential diagnosis in DoctorToolkit, grammar correction in AI Girl Tutor, and resume generation in AI Resume Builder). When you use these features:</p>
+        <ul>
+            <li>The text or input you provide may be sent to <strong>Anthropic</strong> (the AI provider) to generate a response.</li>
+            <li>No personally identifying information is sent unless you explicitly include it in your input.</li>
+            <li>Anthropic's data handling is governed by their own privacy policy, available at <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Data Sharing</h2>
+        <p>We <strong>do not sell, trade, rent, or share</strong> your personal information with third parties for marketing or commercial purposes. Information may only be shared in the following limited circumstances:</p>
+        <ul>
+            <li>With service providers strictly necessary for app functionality (e.g., Apple's App Store, Anthropic's AI services).</li>
+            <li>When required by law, court order, or to protect our legal rights.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Data Storage &amp; Security</h2>
+        <p>The vast majority of data created in our applications is stored <strong>locally on your device</strong>. Where cloud storage is offered (such as iCloud sync), it uses Apple's secure infrastructure and your existing Apple ID.</p>
+        <p>We implement reasonable technical and organizational security measures to protect information transmitted to our services. However, no method of electronic transmission or storage is 100% secure.</p>
+    </section>
+
+    <section>
+        <h2>Children's Privacy</h2>
+        <p>Our applications are not directed at children under 13, and we do not knowingly collect personal information from children. Apps marketed to younger audiences (such as KidLearn) operate entirely on-device with no data collection.</p>
+    </section>
+
+    <section>
+        <h2>Your Rights &amp; Choices</h2>
+        <p>You have the right to:</p>
+        <ul>
+            <li>Manage permissions at any time through your device's Settings app.</li>
+            <li>Delete locally stored data by removing the application or clearing it within app settings.</li>
+            <li>Request information about any personal data we may hold by contacting us at the email below.</li>
+            <li>Request deletion of any personal data we may hold.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. The latest version will always be available at <a href="https://luminadevapps.com/privacy-policy/">luminadevapps.com/privacy-policy</a>, with the "Last updated" date reflecting the most recent revision.</p>
+    </section>
+
+    <div class="contact-box">
+        <h2>Contact Us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please reach out:</p>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <div class="label">General</div>
+                <a href="mailto:admin@luminadevapps.com">admin@luminadevapps.com</a>
+            </div>
+            <div class="contact-item">
+                <div class="label">Support</div>
+                <a href="mailto:support@luminadevapps.com">support@luminadevapps.com</a>
+            </div>
+            <div class="contact-item">
+                <div class="label">Website</div>
+                <a href="https://luminadevapps.com">luminadevapps.com</a>
+            </div>
+        </div>
+    </div>
+
+</div>
+</main>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer>
+<div class="container">
+    <p>&copy; 2026 Lumina Dev Apps · Direct Parcel Distributors Inc.</p>
+    <p>Oshawa, Ontario, Canada</p>
+    <div class="footer-links">
+        <a href="https://luminadevapps.com/">Home</a>
+        <a href="https://luminadevapps.com/privacy-policy/">Privacy Policy</a>
+        <a href="mailto:admin@luminadevapps.com">Contact</a>
+    </div>
+</div>
+</footer>
+
+</body>
+</html>
